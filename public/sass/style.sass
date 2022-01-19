@@ -1,0 +1,758 @@
+@keyframes sliderAnimation
+    0%
+        transform: translateX(0)
+        opacity: 1
+    40%
+        opacity: 0
+    50%
+        transform: translateX(10%)
+        opacity: 0
+    51%
+        transform: translateX(-10%)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+
+@keyframes bubbleAnimationOne
+    0%
+        transform: translateX(45vw) translateY(60vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+    25%
+        transform: translateX(60vw) translateY(50vh)
+    50%
+        transform: translateX(50vw) translateY(0vh)
+        border-radius: 66% 34% 51% 49% / 18% 48% 52% 82%
+    75%
+        transform: translateX(60vw) translateY(50vh)
+    100%
+        transform: translateX(45vw) translateY(60vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+
+@keyframes bubbleAnimationTwo
+    0%
+        transform: translateX(0vw) translateY(80vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+    25%
+        transform: translateX(-10vw) translateY(50vh)
+    50%
+        transform: translateX(-15vw) translateY(calc(20vh - 100%))
+        border-radius: 66% 34% 51% 49% / 18% 48% 52% 82%
+    75%
+        transform: translateX(-10vw) translateY(50vh)
+    100%
+        transform: translateX(0vw) translateY(80vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+
+@keyframes bubbleAnimationThree
+    0%
+        transform: translateX(0vh) translateY(-50vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+    25%
+        transform: translateX(30vh) translateY(-25vh)
+    50%
+        transform: translateX(0vh) translateY(0vh)
+        border-radius: 66% 34% 51% 49% / 18% 48% 52% 82%
+    75%
+        transform: translateX(30vh) translateY(-25vh)
+    100%
+        transform: translateX(0vh) translateY(-50vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+
+@keyframes bubbleAnimationFour
+    0%
+        transform: translateX(40vw) translateY(-50vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+    25%
+        transform: translateX(30vw) translateY(-25vh)
+    50%
+        transform: translateX(20vw) translateY(0vh)
+        border-radius: 66% 34% 51% 49% / 18% 48% 52% 82%
+    75%
+        transform: translateX(30vw) translateY(-25vh)
+    100%
+        transform: translateX(0vw) translateY(-50vh)
+        border-radius: 18% 70% 30% 82% / 77% 23% 88% 12%
+html
+    scroll-behavior: smooth
+    body, *
+        margin: 0
+        padding: 0
+        font-family: 'Montserrat', sans-serif
+        header
+            width: 100%
+            height: 80px
+            padding: 0 10vw
+            display: flex
+            justify-content: space-between
+            box-sizing: border-box
+            position: fixed
+            z-index: 999
+            opacity: 0
+            transform: translateY(-5vh)
+            transition: 800ms
+            #header_logo
+                height: 100%
+                position: relative
+                z-index: 999
+                img
+                    transition: 300ms
+                    height: 35%
+                    position: relative
+                    top: 50%
+                    transform: translateY(-50%)
+            #header_toggler
+                cursor: pointer
+                height: 25px
+                width: 30px
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                position: relative
+                z-index: 999
+                top: 50%
+                transform: translateY(-50%)
+                span
+                    width: 100%
+                    height: 5px
+                    background: #ffffff
+                    border-radius: 1px
+                    transition: 300ms
+            nav
+                position: fixed
+                z-index: 998
+                left: 0
+                top: 0
+                width: 100%
+                height: calc(100vh - 80px)
+                display: flex
+                justify-content: center
+                align-items: center
+                box-sizing: border-box
+                transition: 300ms
+                transform: translateY(-100%)
+                background: #fff
+                #main_nav
+                    width: 100%
+                    height: 70%
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-around
+                    align-items: center
+                    background: #fff
+                    a
+                        text-decoration: none
+                        color: #000
+                        font-weight: bold
+                        text-transform: uppercase
+                        position: relative
+                        overflow: hidden
+                        padding: 6px 0
+                        transition: 300ms
+                        opacity: 0
+                        transform: translateX(-30px)
+                        &::after
+                            content: ''
+                            position: absolute
+                            bottom: 0
+                            left: 100%
+                            width: 0%
+                            height: 5px
+                            background: #000
+                            transition: 300ms
+                            transform: translateX(-100%)
+                            border-radius: 86% 14% 70% 30% / 47% 55% 45% 53%
+                        &:hover::after
+                            width: 100%
+                    .showLink
+                        opacity: 1
+                        transform: translateX(0%)
+            .activeNav
+                transform: translateY(calc(0% + 80px))
+        main
+            section
+                overflow: hidden
+                transition: 450ms
+                background: #fff
+                width: 100%
+                height: 100vh
+                padding: 0 10vw
+                box-sizing: border-box
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                button, #send
+                    width: auto
+                    margin-top: 5vh
+                    border: none
+                    background: none
+                    text-transform: uppercase
+                    font-weight: 800
+                    cursor: pointer
+                    position: relative
+                    text-decoration: none
+                    color: #000
+                    &::after
+                        content: ''
+                        position: absolute
+                        bottom: -15px
+                        left: 100%
+                        width: 0%
+                        height: 5px
+                        background: #000
+                        transition: 300ms
+                        transform: translateX(-100%)
+                        border-radius: 100% 0% 70% 30% / 47% 53% 47% 53%
+                    &:hover::after
+                        width: 100%
+                h2
+                    text-transform: uppercase
+                    font-size: 48px
+                    transform: translateX(-100vw)
+                    opacity: 0
+                    transition: 600ms
+                p
+                    font-weight: 400
+                    text-transform: uppercase
+                    font-size: 24px
+                h3
+                    font-size: 16px
+                    color: #9c9c9c
+                    text-transform: uppercase
+                .rightAnimation
+                    transform: translateX(100vw)
+                    opacity: 0
+                    transition: 600ms
+            #sectionOne
+                padding: 0
+                background: #dddcda
+                background-image: url('../assets/img/background2.webp')
+                background-repeat: no-repeat
+                background-size: cover
+                background-position: center 100%
+                position: relative
+                opacity: 1
+                background-attachment: fixed
+                #sectionOne_background
+                    position: absolute
+                    z-index: 1
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100vh
+                #sectionOne_Box
+                    display: flex
+                    width: 100%
+                    height: 18vh
+                    flex-direction: column
+                    align-items: center
+                    justify-content: space-between
+                    position: relative
+                    top: 20vh
+                    z-index: 1
+                    img
+                        opacity: 0
+                        transition: 1000ms
+                        transform: translateY(-5vh)
+                    #sectionOne_Box_heading
+                        display: flex
+                        margin: 4vh 0
+                        h2
+                            color: #fff
+                            margin-right: 10px
+                            transform: translateY(0vh)
+                            opacity: 1
+                        #secondElementToTypping
+                            font-weight: 400
+                    p
+                        color: #fff
+                        opacity: 0
+                        transition: 1000ms
+                        transform: translateY(5vh)
+            #sectionTwo
+                height: calc(100vh - 80px)
+                width: 100%
+                #sectionTwo_Box
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    #sectionTwo_Technologies
+                        display: flex
+                        flex-wrap: wrap
+                        width: 100%
+                        box-sizing: border-box
+                        margin-top: 5vh
+                        .technologies_item
+                            opacity: 0
+                            transition: 600ms
+                            width: calc( 100% / 4 )
+                            height: 15vh
+                            text-align: center
+                            box-sizing: border-box
+                            border-left: 1px solid #F4F4F4
+                            border-bottom: 1px solid #F4F4F4
+                            p
+                                font-weight: 600
+                                font-size: 18px
+                                position: relative
+                                top: 50%
+                                transform: translateY(-50%)
+            #sectionThree
+                height: calc(100vh - 80px)
+                background-image: url('../assets/img/threebackground.png')
+                background-repeat: no-repeat
+                background-size: cover
+                padding: 0
+                #sectionThree_Content
+                    background: #0a2634e8
+                    height: 100%
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: center
+                    box-sizing: border-box
+                    h2, h3
+                        color: #fff
+                    #works_Box
+                        display: flex
+                        flex-direction: row
+                        align-items: center
+                        justify-content: space-around
+                        height: auto
+                        width: 100%
+                        .works_Box_arrow
+                            height: 100%
+                            display: flex
+                            align-items: center
+                            position: relative
+                            top: 5%
+                            img
+                                height: 70px
+                                cursor: pointer
+                            &:last-child
+                                transform: rotate(180deg)
+                        #works_Box_item
+                            position: relative
+                            margin-top: 5vh
+                            display: flex
+                            flex-direction: column
+                            height: auto
+                            background: #1b3a49
+                            align-items: center
+                            overflow: hidden
+                            #works_Box_item_image
+                                height: 40vh
+                                width: auto
+                                text-align: center
+                                border: 20px solid #08171e
+                                img
+                                    height: 100%
+                            #works_Box_item_link
+                                width: 100%
+                                height: 100%
+                                position: absolute
+                                bottom: 0%
+                                left: 0%
+                                background: rgba(8, 23, 30, 0.95)
+                                display: flex
+                                flex-direction: column
+                                justify-content: center
+                                align-items: center
+                                transform: translateY(100%)
+                                transition: 300ms
+                                h4
+                                    color: #fff
+                                    text-transform: uppercase
+                                    position: relative
+                                    top: 3%
+                                    font-size: 25px
+                                    margin-bottom: 2%
+                                h3
+                                    position: relative
+                                    top: 3%
+                                    font-size: 18px
+                                    margin-bottom: 5%
+                                a
+                                    position: relative
+                                    top: 3%
+                                    width: 40px
+                                    height: 40px
+                                    background: #fff
+                                    border-radius: 100%
+                                    text-decoration: none
+                                    font-weight: bold
+                                    display: flex
+                                    justify-content: center
+                                    align-items: center
+                                    text-decoration: none
+                                    color: #fff
+                                    img
+                                        width: 80%
+                            &:hover #works_Box_item_link
+                                transform: translateY(0)
+                    #navigation
+                        display: flex
+                        flex-direction: row
+                        justify-content: space-between
+                        width: 300px
+                        height: auto
+                        margin-top: 5vh
+                        span
+                            cursor: pointer
+                            box-sizing: border-box
+                            width: calc( 100% / 5 - 30px )
+                            height: 3px
+                            background: #fff
+                            transition: 300ms
+                            border-radius: 93% 7% 90% 10% / 17% 87% 13% 83%
+                        .activeSpan
+                            background: #68b9df
+            #sectionFour
+                height: calc(100vh - 80px)
+                background: #03283e
+                position: relative
+                padding: 0
+                #sectionFour_content
+                    position: absolute
+                    top: 0
+                    left: 0
+                    z-index: 500
+                    height: 100%
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    flex-direction: column
+                    padding: 0 10vw
+                    box-sizing: border-box
+                    h2, h3, p
+                        color: #fff
+                    p
+                        margin-top: 5vh
+                        font-size: 15px
+                        text-align: center
+                        text-transform: lowercase
+                    button
+                        color: #fff
+                        &::after, &::before
+                            background: #fff
+                #sectionFour_background
+                    position: absolute
+                    top: 0
+                    left: 0%
+                    z-index: 0
+                    height: 100%
+                    width: 100%
+                    overflow: hidden
+                    span
+                        position: absolute
+                        height: 80vw
+                        width: 80vw
+                        background: #0a54765c
+                        &:last-child
+                            animation: bubbleAnimationOne 40s infinite linear
+                            height: 60vw
+                            width: 60vw
+                        &:nth-last-child(2)
+                            animation: bubbleAnimationThree 40s infinite linear
+                            height: 40vw
+                            width: 40vw
+                        &:nth-last-child(3)
+                            height: 70vw
+                            width: 70vw
+                            animation: bubbleAnimationFour 40s infinite linear
+                        &:first-child
+                            height: 80vw
+                            width: 80vw
+                            animation: bubbleAnimationTwo 40s infinite linear
+            #sectionFive
+                height: calc(100vh - 80px)
+                h4
+                    font-size: 13px
+                #sectionFive_Box
+                    width: 100%
+                    display: grid
+                    grid-template-columns: 50% 50%
+                    grid-template-rows: 1fr
+                    margin-top: 5vh
+                    .box_item
+                        transition: 600ms
+                        opacity: 0
+                        ul
+                            margin-top: 2vh
+                            list-style-type: none
+                            li
+                                font-size: 16px
+                    .box_item:nth-child(1)
+                        text-align: right
+                        padding-right: 1vw
+                        border-right: none
+                        transform: translateX(-100vw)
+                        border-right: 3px solid #00000000
+                    .box_item:nth-child(2)
+                        text-align: left
+                        padding-left: 1vw
+                        transform: translateX(100vw)
+            #sectionSix
+                height: calc(100vh - 80px - 60px)
+                opacity: 1
+                transform: translateY(0)
+                transition: 600ms
+                padding: 10vh 10vw
+                #socialFadeIn
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    #socialBox
+                        margin: 5vh 0
+                        width: 150px
+                        display: flex
+                        justify-content: space-between
+                        flex-direction: row
+                        .socialBox_item
+                            transition: 300ms
+                            &:hover
+                                transform: translateY(-5px)
+                    form
+                        max-width: 700px
+                        display: flex
+                        flex-direction: row
+                        flex-wrap: wrap
+                        justify-content: space-between
+                        input, textarea
+                            border: none
+                            border-bottom: 2px solid #000
+                            padding: 3vh 0 1vh 0
+                            text-align: center
+                            width: 100%
+                            outline: none
+                            text-transform: uppercase
+                            transition: 300ms
+                        input
+                            width: 48.5%
+                        textarea
+                            padding-bottom: 0
+                        .incorrect
+                            border-bottom: 2px solid #b61f1f !important
+                        .correct
+                            border-bottom: 2px solid #347441 !important
+        footer
+            height: 60px
+            width: 100%
+            text-align: center
+            padding: 0 10vw
+            box-sizing: border-box
+            p
+                font-size: 10px
+                font-weight: 600
+        .fadeInAnimation
+            transition: 1000ms
+            opacity: 0
+            transform: translateY(10vh)
+
+@media only screen and (max-width: 980px)
+    body
+        main
+            #sectionTwo, #sectionThree, #sectionFive, #sectionSix, footer
+                padding: 10vh 10vw !important
+                height: auto !important
+            #sectionOne
+                height: 100vh
+                padding: 0vh 10vw
+                background-size: 100%
+            #sectionTwo
+                #sectionTwo_Box
+                    #sectionTwo_Technologies
+                        .technologies_item
+                            opacity: 0
+                            transition: 300ms
+                            width: calc( 100% / 2 ) !important
+                            border-left: none !important
+                            border-bottom: 1px solid #f4f4f4
+                            p
+                                font-size: 14px
+                            &:nth-child(even)
+                                border-left: 1px solid #F4F4F4 !important
+            #sectionThree
+                padding: 0 !important
+                #sectionThree_Content
+                    padding: 10vh 10vw
+                    #works_Box
+                        .works_Box_arrow
+                            display: none !important
+                        #works_Box_item
+                            position: relative
+                            width: auto
+                            height: 100%
+                            border: 2px solid #68b9df
+                            #works_Box_item_image
+                                position: relative
+                                z-index: 4
+                                img
+                                    height: 100%
+                                    width: auto
+                            #works_Box_item_link
+                                text-align: center !important
+                                position: absolute
+                                left: 0
+                                top: 0
+                                z-index: 5
+                                transform: translateY(0) !important
+                                h4
+                                    position: relative
+                                    top: 3%
+                                    font-size: 15px !important
+                                    margin-bottom: 5%
+                                h3
+                                    position: relative
+                                    top: 3%
+                                    font-size: 14px
+                                    margin-bottom: 15%
+                    #navigation
+                        width: 95% !important
+                        span
+                            width: calc( 90% / 5 - 30px ) !important
+            #sectionFour
+                min-height: 100vh
+                #sectionFour_content
+                    padding: 10vh 10vw !important
+                #sectionFour_background
+            #sectionFive
+                #sectionFive_Box
+                    grid-template-columns: 1fr !important
+                    grid-template-rows: 1fr 1fr !important
+                    margin-top: 5vh
+                    .box_item
+                        ul
+                            margin-top: 2vh
+                            list-style-type: none
+                            li
+                                font-size: 16px
+                    .box_item:nth-child(1)
+                        text-align: center !important
+                        padding-right: 0
+                        border-right: none !important
+                        border-bottom: 1px solid #f4f4f4
+                        padding-bottom: 3.5vh
+                    .box_item:nth-child(2)
+                        padding-top: 3.5vh
+                        text-align: center !important
+                        padding-left: 0
+
+@media only screen and (max-width: 854px)
+    body
+        main
+            section
+                h2
+                    text-transform: uppercase
+                    font-size: 38px !important
+                h3
+                    font-size: 14px !important
+                    color: #9c9c9c
+                    text-transform: uppercase
+            #sectionOne
+                p
+                    font-weight: 400
+                    text-transform: uppercase
+                    font-size: 19px !important
+                #sectionOne_Box
+                    #sectionOne_Box_heading
+                        margin: 20px 0
+                        h2, #secondElementToTypping
+                            margin: 5px 5px !important
+                            padding: 0 !important
+            #sectionSix
+                min-height: 70vh
+                #socialFadeIn
+                    #socialBox
+                        margin: 5vh 0
+                        width: 150px
+                        display: flex
+                        justify-content: space-between
+                        flex-direction: row
+                        .socialBox_item
+                            transition: 300ms
+                            &:hover
+                                transform: translateY(-5px)
+                    form
+                        width: 100%
+                        flex-direction: column
+                        flex-wrap: wrap
+                        justify-content: center
+                        input, textarea
+                            width: 100%
+                            font-size: 12px !important
+
+@media only screen and (max-width: 613px)
+    body
+        header
+            #header_logo
+                a
+                    img
+                        height: 25%
+                        position: relative
+                        top: 50%
+                        transform: translateY(-50%)
+            #header_toggler
+                cursor: pointer
+                height: 15px
+                span
+                    width: 100%
+                    height: 2px
+                    background: #000
+                    border-radius: 1px
+                    transition: 300ms
+        main
+            section
+                h2
+                    text-transform: uppercase
+                    font-size: 24px !important
+                    text-align: center
+                p
+                    font-weight: 400
+                    text-transform: uppercase
+                    font-size: 13px !important
+                    text-align: center
+                h3
+                    font-size: 12px !important
+                    color: #9c9c9c
+                    text-transform: uppercase
+                    text-align: center
+            #sectionOne
+                background-size: cover !important
+                #sectionOne_Box
+                    img
+                        height: 15vh
+                #sectionOne_Box_heading
+                    h2
+                        font-size: 29px !important
+
+@media only screen and (max-width: 450px)
+    body
+        main
+            #sectionOne_Box
+                #sectionOne_Box_heading
+                    h2
+                        font-size: 20px !important
+
+            #sectionFive
+                #sectionFive_Box
+                    h3
+                        font-size: 13px !important
+                        margin-bottom: 5px
+                    h4
+                        font-size: 12px !important
+                    ul
+                        li
+                            font-size: 13px !important
+            #sectionSix
+                #socialFadeIn
+                    form
+                        input, textarea
+                            width: 100%
+                            font-size: 10px !important

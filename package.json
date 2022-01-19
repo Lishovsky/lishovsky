@@ -1,0 +1,23 @@
+{
+  "name": "lishovsky",
+  "version": "1.0.0",
+  "description": "lishovsky.pl ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lishovsky/lishovskyPortfolio.git"
+  },
+  "author": "Dominik Liszka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lishovsky/lishovskyPortfolio/issues"
+  },
+  "homepage": "https://github.com/Lishovsky/lishovskyPortfolio#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.6.0",
+    "express": "^4.17.1"
+  }
+}
